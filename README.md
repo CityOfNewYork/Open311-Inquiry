@@ -61,7 +61,7 @@ serviceInfo = serviceObject.getService(serviceObject.json)
 
 <b> To output the result in text format: </b><br />
 <code>
-print serviceListOutput.text
+print serviceInfo.text
 </code>
 
 
