@@ -58,7 +58,7 @@ serviceInfo = serviceObject.getService(serviceObject.xml)
 <b>OR</b><br />
 <code>
 serviceInfo = serviceObject.getService(serviceObject.json)
-</code>
+</code><br />
 
 <b> To output the result in text format: </b><br />
 <code>
