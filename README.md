@@ -46,10 +46,10 @@ print serviceListOutput.text
 
 
 <h1><b> Creating an open311 Service Object: </b></h1><br />
-Creating a open311 Servic object and setting the API Key/ID and Service ID:
+<b>Creating a open311 Servic object and setting the API Key/ID and Service ID: </b><br />
 <code>
 serviceObject = open311SNSL.service('API ID' , 'API Key' , 'service_id')
-</code>
+</code><br />
 <b> Get specific service information and output as a JSON or XML</b><br />
 <code>
 serviceInfo = serviceObject.getService(serviceObject.xml)
