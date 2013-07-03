@@ -10,9 +10,9 @@ Open311 is a form of technology that provides open channels of communication for
 If the library fails to import, make sure python is set to search the directory that the file is located in. Then restart python and try again.
 
 
-
+<h1> Creating ServiceList Object </h1>
 <b>Creating a open311 ServiceList object and setting the API Key/ID:</b><br />
-<code>myobj = open311SNSL.servicelist('API ID' , 'API Key') </code>
+<code>ServListObj = open311SNSL.servicelist('API ID' , 'API Key') </code>
 
 
 <b>Changing the API Key or ID for a servicelist object that was already created: </b><br />
@@ -29,20 +29,46 @@ ServListObj.getKey()
 </code>
 
 
-<b> Using an already created object, search for "all" service lists and output as a JSON or XML</b><br />
+<b> Using an already created object, search for "all" service lists and format as a JSON or XML</b><br />
 <code>
-ServListObj.getServiceList(ServListObj.s_all , ServListObj.json)
+serviceListOutput = ServListObj.getServiceList(ServListObj.s_all , ServListObj.json)
 </code><br />
 <b>OR</b><br />
 <code>
-ServListObj.getServiceList(ServListObj.s_all , ServListObj.xml)
+serviceListOutputServListObj.getServiceList(ServListObj.s_all , ServListObj.xml)
+</code>
+
+<b> To output the result in text format: </b><br />
+<code>
+print serviceListOutput.text
+</code>
+
+
+
+<h1><b> Creating an open311 Service Object: </b></h1><br />
+Creating a open311 Servic object and setting the API Key/ID and Service ID:
+<code>
+serviceObject = open311SNSL.service('API ID' , 'API Key' , 'service_id')
+</code>
+<b> Get specific service information and output as a JSON or XML</b><br />
+<code>
+serviceInfo = serviceObject.getService(serviceObject.xml)
+</code><br />
+<b>OR</b><br />
+<code>
+serviceInfo = serviceObject.getService(serviceObject.json)
+</code>
+
+<b> To output the result in text format: </b><br />
+<code>
+print serviceListOutput.text
 </code>
 
 
 
 
 <b>For further documentation and examples, see the integrated help Doc in python:</b><br />
-<code>help(DOT) </code>
+<code>help(open311SNSL) </code>
 
 
 
