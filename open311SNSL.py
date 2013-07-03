@@ -168,9 +168,9 @@ class service:
         '''
         (Creating Service Object)
 
-        obj = Open311SNSL.service('API ID ','API Key','serv_id', contentType)
+        obj = Open311SNSL.service('API ID ','API Key','serv_id')
 
-        obj = Open311SNSL.service('12345','987654','20-4-7',obj.xml)
+        obj = Open311SNSL.service('12345','987654','20-4-7')
         '''
         self.id = ID
         self.key = Key
