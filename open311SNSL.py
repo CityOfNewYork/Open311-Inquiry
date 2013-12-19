@@ -4,7 +4,7 @@ Open311 API Library
 '''
 import requests
 
-print 'In open311'
+print ('In open311')
 class serviceList:
     def __init__(self,ID, Key):
         
@@ -25,18 +25,16 @@ class serviceList:
         self.xml = 'xml'
         #Service List Constants
         self.s_all = 'all'
-        self.s_Environment_Sanitation = 'Environment and Sanitation'
-        self.s_Property_Building_Home = 'Property, Buildings and Homes'
-        self.s_Education_Employment = 'Education and Employment'
-        self.s_Business_Finance = 'Business and Finance'
+        self.s_Business = 'Business'
+        self.s_Civic_Services = 'Civic Services'
+        self.s_Culture_and_Recreation = 'Culture and Recreation'
+        self.s_Education = 'Education'
+        self.s_Environment = 'Environment'
+        self.s_Health = 'Health'
+        self.s_Housing_and_Development = 'Housing and Development'
+        self.s_Public_Safety = 'Public Safety'
         self.s_Social_Services = 'Social Services'
-        self.s_Health_Medicine = 'Health and Medicine'
-        self.s_PubSafe_Law = 'Public Safety and Law'
-        self.s_Gov_Civ_Services = 'Government and Civil Services'
-        self.s_Mobile = 'mobile'
-        self.s_Web = 'web'
-        self.s_Finder = 'finder'
-
+        self.s_Transportation = 'Transportation'
 
         
     def validation(self,statusCode, category):
@@ -45,11 +43,11 @@ class serviceList:
 
         '''
         if statusCode == 403:
-            print 'Error Code:403 \n Make sure your APP ID/APP Key and Category are correct'
-            print 'APP ID: ', self.id,'  App Key: ',self.key , '  Category: ', category
+            print ('Error Code:403 \n Make sure your APP ID/APP Key and Category are correct')
+            print ('APP ID: ', self.id,'  App Key: ',self.key , '  Category: ', category)
     
         elif statusCode == 0:
-            print 'Error Code:0 \n Make sure your firewall isn\'t blocking any connections'
+            print ('Error Code:0 \n Make sure your firewall isn\'t blocking any connections')
         
         elif statusCode == 200:
             return True
@@ -64,7 +62,7 @@ class serviceList:
         object.getID()
             ==> Returns the ID number for object
         '''
-        print self.id
+        print (self.id)
         return self.id
 
     def getKey(self):
@@ -76,7 +74,7 @@ class serviceList:
         object.getKey()
             ==> Returns the key for object
         '''
-        print self.key
+        print (self.key)
         return self.key
 
     def setID(self, newID):
@@ -89,7 +87,7 @@ class serviceList:
             ==> Assigns a new ID number(12345) to the object
         '''
         self.id = newID
-        print self.id
+        print (self.id)
 
     def setKey(self,newKey):
         '''
@@ -101,7 +99,7 @@ class serviceList:
             ==> Assigns a new key number(56789) to the object
         '''
         self.key = newKey
-        print self.key
+        print (self.key)
 
 
 
@@ -138,12 +136,28 @@ class serviceList:
                     ==> Search 'Public Safety and Law'
         self.s_Gov_Civ_Services
                     ==>  'Search Government and Civil Services'
-        self.s_Mobile
-                ==> Search 'Mobile'
-        self.s_Web
-                ==> Seach 'Web'
-        self.s_Finder
-                ==> Search 'Finder'
+					
+		
+		self.s_Business
+					==> Search 'Business'
+        self.s_Civic_Services 
+					==> Search 'Civic Services'
+        self.s_Culture_and_Recreation 
+					==> Search 'Culture and Recreation'
+        self.s_Education
+					==> Search 'Education'
+        self.s_Environment
+					==> Search 'Environment'
+        self.s_Health
+					==> Search 'Health'
+        self.s_Housing_and_Development 
+					==> Search 'Housing and Development'
+        self.s_Public_Safety
+					==> Search 'Public Safety'
+		self.s_Social_Services
+					==> Search 'Social Services'
+		self.s_Transportation
+					==> Search 'Transportation'
         '''
         if contentType == self.json:
             self.r = requests.get("https://api.cityofnewyork.us/311/v1/services/"+
@@ -158,7 +172,7 @@ class serviceList:
                          "&app_key="+self.key)
 
         self.sCode = self.r.status_code
-        print self.sCode
+        print (self.sCode)
         self.validator = self.validation(self.sCode , serviceFilter)
         if self.validator == True:           
             return self.r
@@ -206,7 +220,7 @@ class service:
                          "&app_key="+self.key)
 
         self.sCode = self.r.status_code
-        print self.sCode
+        print (self.sCode)
         self.validator = self.validation(self.sCode)
         if self.validator == True:
             return self.r
@@ -217,11 +231,11 @@ class service:
 
         '''
         if statusCode == 403:
-            print 'Error Code:403 \n Make sure your APP ID/APP Key and Category are correct'
-            print 'APP ID: ', self.id,'  App Key: ',self.key , 'Service ID',self.servID
+            print ('Error Code:403 \n Make sure your APP ID/APP Key and Category are correct')
+            print ('APP ID: ', self.id,'  App Key: ',self.key , 'Service ID',self.servID)
     
         elif statusCode == 0:
-            print 'Error Code:0 \n Make sure your firewall isn\'t blocking any connections'
+            print ('Error Code:0 \n Make sure your firewall isn\'t blocking any connections')
         
         elif statusCode == 200:
             return True
